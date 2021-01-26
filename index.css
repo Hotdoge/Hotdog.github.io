@@ -1,0 +1,10 @@
+a{
+    text-decoration: none;
+    color:rgb(160, 160, 160);
+}
+a:hover{
+    color:black;
+}
+li{
+    margin:10px;
+}
