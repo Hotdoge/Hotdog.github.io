@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="badsmile.ico">
+    <title>Fackload</title>
+    <style>
+
+
+        .jindu{
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        }
+        ul{
+            width: 150px;
+        }
+        li{
+        list-style: none;
+        height: 30px;
+        width: 10px;
+        background-color: rgb(20, 174, 221);
+        float: left;
+        margin:5px;
+        animation-name: donghua;
+        animation-duration:2s;
+        animation-iteration-count:infinite;
+        }
+        .u1{
+            animation-delay: 0s;
+        }
+        .u2{
+            animation-delay: 0.3s;
+        }
+        .u3{
+            animation-delay: 0.6s;
+        }
+        .u4{
+            animation-delay: 0.9s;
+        }
+        .u5{
+            animation-delay: 1.2s;
+        }
+        .load{
+            text-align: center;
+            font:bold 20px 微软雅黑;
+        }
+        .jindu:hover li{
+        animation-play-state: paused;
+        }
+        .tellyou{
+            width: 280px;
+            position: absolute;
+            top:90px;
+            left: -40px;
+            color: rgb(253, 253, 253);
+            transition: color 2s;
+            }
+
+        .jindu:hover .tellyou{
+            color: rgb(107, 106, 106)
+            }
+@keyframes donghua{
+    from{
+        background-color: blue;
+    }
+   to{
+        background-color:rgb(20, 174, 221);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="jindu">
+        <div class="load">Loading...</div>
+        <ul>
+            <li class="u1"></li>
+            <li class="u2"></li>
+            <li class="u3"></li>
+            <li class="u4"></li>
+            <li class="u5"></li>
+        </ul>
+        <div class="tellyou">
+            It's just a show of my loading bar...
+        </div>
+    </div>
+</body>
+</html>

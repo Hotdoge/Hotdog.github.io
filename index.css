@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+    color:rgb(224, 218, 218);
+}
+li{
+    margin:10px;
+}
+body{
+    background-image: url(./资料/bj.jpg);
+    background-size: cover;
+}
+.se{
+    width: 250px;
+    float: left;
+   margin: 20px 50px;
+   border:grey  1px;
+}
+.tell{margin: 10px;}
+.out{
+    width: 90%;
+    margin:20px auto;
+}
+.list{
+    padding-left: 30px;
+    height: 170px;
+    overflow:auto;  
+    scrollbar-width: none;
+}
+aside {
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+    display: flex;
+    flex-direction:column-reverse;
+    height: 60px;
+    overflow: hidden;
+    transition: height 2s;
+}
+aside:hover{
+    height: 100%;
+    
+}
+aside:hover .box{
+background-color: rgba(233, 232, 232, 0.644);  
+}
+i{
+    font-size: 40px;
+}
+aside .box{
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(204, 204, 204, 0.603);
+    border: rgb(8, 8, 8) 2px dashed;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: 50px; 
+    font-size: 15px;
+}

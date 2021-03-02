@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting..</title>
+    <link rel="icon" href="../../资料/origin.jpeg">
+    <style>
+        .outer{
+            width: 24%;
+            height: 130px;
+            margin:200px auto;
+            border-bottom: black 2px solid;
+            padding:5px;
+        }
+        .outer div{
+            margin: 4px;
+            width: 32px;
+            height: 33px;
+            border-radius: 50%;
+            float: left;
+            animation:donghua .5s infinite ease-in alternate;
+        }
+            .outer .box1{
+            background-color:rgb(182, 49, 8);
+            animation-delay: 0;}
+            .outer  .box2{
+            background-color:rgb(189, 116, 7);
+            animation-delay: 0.1s;}
+            .outer .box3{
+            background-color:rgb(223, 201, 0);
+            animation-delay: 0.2s;}
+            .outer .box4{
+            background-color:rgb(86, 192, 0);
+            animation-delay: 0.3s;}
+            .outer .box5{
+            background-color:rgb(5, 219, 41);
+            animation-delay: 0.4s;}
+            .outer .box6{ 
+            background-color:rgb(3, 147, 190);
+            animation-delay: 0.5s;}
+            .outer .box7{
+            background-color:rgb(0, 86, 214);
+            animation-delay: 0.6s;}
+.l{
+    font:bold 30px sans-serif; 
+    position: absolute;
+    top:350px;
+    left: 550px;
+
+}
+        @keyframes donghua {
+            from{margin-top:0;height: 33px;}
+            to{margin-top: 120px;height: 23px;}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+    </div>
+    <div class="l">Loading...</div>
+</body>
+</html>
