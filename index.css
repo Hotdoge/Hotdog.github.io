@@ -1,51 +1,42 @@
-*{
-    margin: 0;
-    padding: 0;
+body{
+    background-image: url(./资料/bj.jpg);
+    background-size: cover;
+
+
 }
 a{
     text-decoration: none;
     color:black;
+    font-size: 15px;
 }
 a:hover{
     color:rgb(224, 218, 218);
+    text-decoration: none;
+
+}
+.row>div{
+   height: 220px;
 }
 li{
     margin:10px;
 }
-body{
-    background-image: url(./资料/bj.jpg);
-    background-size: cover;
-}
-.se{
-    width: 250px;
-    float: left;
-   margin: 20px 50px;
-   border:grey  1px;
-}
 .tell{margin: 10px;}
-.out{
-    width: 90%;
-    margin:20px auto;
-}
-.list{
-    padding-left: 30px;
-    height: 170px;
-    overflow:auto;  
-    scrollbar-width: none;
+
+.a-side{
+height: 60px;
+position:fixed;
+top:25%;
+right:15%
 }
 aside {
-    position: absolute;
-    right: 100px;
-    bottom: 100px;
     display: flex;
-    flex-direction:column-reverse;
+    flex-direction:column;
     height: 60px;
     overflow: hidden;
-    transition: height 2s;
+    transition: height 1.5s;
 }
 aside:hover{
-    height: 100%;
-    
+    height: 240px;
 }
 aside:hover .box{
 background-color: rgba(233, 232, 232, 0.644);  
@@ -64,4 +55,44 @@ aside .box{
     text-align: center;
     line-height: 50px; 
     font-size: 15px;
+}
+.schimg{
+    overflow: hidden;
+    height: 120px;
+    width: 0px;
+    position: absolute;
+    top: 100px;
+    right: 65px;
+    background-color: white;
+    text-align: center;
+    transition: width 0.5s;
+    box-shadow: 0 0 5px black;
+}
+.schimg img{
+    height: 70%;
+}
+.showq,.showme{
+    overflow: hidden;
+    height: 25px;
+    line-height: 25px;
+    width: 0px;
+    position: absolute;
+    background-color: white;
+    transition: width 0.5s;
+    box-shadow: 0 0 5px black;
+}
+.showq{
+    top: 200px;
+    right: 65px;
+}
+.showme{
+    top: 75px;
+    right: 65px;
+}
+.qdiv:hover .showq,.mediv:hover .showme,.schdiv:hover .schimg{
+    display: block;
+    width: 110px;
+}
+.round{
+    border-radius: 10px;
 }

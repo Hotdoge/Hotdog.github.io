@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #outer{
+        width: 400px;
+        height:400px;
+        margin: 30px auto;
+        background-color: #bfa;
+        position: relative;
+        overflow: hidden;
+    }
+    .wrapper{
+        width: 380px;
+        height: 380px;
+        margin:10px auto;
+        overflow: hidden;
+        position: relative;
+
+    }
+    .img{
+        position: absolute;
+        display: flex;
+        width:100%;
+        height: 100%;
+    }
+    ul{ 
+        position: absolute;
+        top:320px;
+        left: 40px;
+        }
+    li{ 
+        float: left;
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        background-color: rgba(138, 136, 136, 0.575);  
+        margin: 10px;
+        list-style: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div class="wrapper">
+        <div class="img">
+        <img src="./ziliao/1.jpeg" alt="">
+        <img src="./ziliao/2.jpeg" alt="">
+        <img src="./ziliao/3.jpeg" alt="">
+        <img src="./ziliao/4.jpeg" alt="">
+        <img src="./ziliao/5.jpeg" alt="">
+        <img src="./ziliao/6.jpeg" alt="">
+        </div>
+        </div>
+ 
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+<script>
+var img=document.getElementsByClassName('img')[0];
+var lis=document.getElementsByTagName('li');
+var i=0,j,time;
+
+move=function(){
+time=setInterval(() => { 
+    img.style.left=img.offsetLeft-45+'px';
+    console.log(img.style.left)
+    if(parseInt(img.style.left)<-2000)
+    setTimeout(() => {
+          img.style.left='0px';
+}, 1000);
+}, 100);
+}
+
+setInterval(() => {
+    lis[i].style.backgroundColor='rgba(50, 50, 50,.7)';
+    j=(i+lis.length-1)%lis.length;
+    lis[j].style.backgroundColor=' rgba(138, 136, 136, 0.575)';
+    i++;if(i==6)i=0;
+    clearInterval(time)
+    setTimeout(() => {
+         move()
+}, 1000);
+}, 2000);
+
+</script>
+</body>
+</html>

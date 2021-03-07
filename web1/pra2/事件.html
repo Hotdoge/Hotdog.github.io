@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box,.scroll{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        body{
+            height: 550px;
+            border:1px red solid;
+            height: 700px;
+        }
+
+        .up{
+            width: 300px;
+            height: 200px;
+            margin:20px 0;
+            border:black 1px solid;
+
+        }
+        .down{
+            width: 300px;
+            height: 25px;
+            line-height: 25px;
+            border:black 1px solid;
+        }
+        #box{
+            height: 100px;width: 100px;
+            background-color: rgb(0, 0, 0);
+            color: aliceblue;
+            position: absolute;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="box">move me</div>
+    <div class="outer">
+        <div class="up">move mouse in me</div>
+        <div class="down"></div>
+    </div>
+    <div class="scroll">scroll me
+        <p>祝</p><p>你</p><p>新</p><p>年</p><p>大</p><p>吉</p>
+    </div>
+    <br>
+    <input type="text" value="show your keyCode">
+    <div id="box">
+    press key to control me <br>
+    shift to slowdown <br>
+    alt to fastup <br>
+    </div>
+    <script>
+    var box=document.getElementById('box')
+    move(box);
+    function move(obj){ 
+    obj.onmousedown=function(event){
+        var x=event.pageX,y=event.pageY;
+        var xx=x-box.offsetLeft,yy=y-box.offsetTop;
+        document.onmousemove=function(event){
+        event=event||window.event;
+        obj.style.top=event.pageY-yy+'px';
+        obj.style.left=event.pageX-xx+'px';  
+        }
+    }
+    document.onmouseup=function(){ 
+        document.onmousemove=null;  
+        }
+      }
+   
+    var up=document.getElementsByClassName('up')[0];
+    var down=document.getElementsByClassName('down')[0];
+   up.onmousemove=function(event){
+    var x=event.screenX;
+    var y=event.screenY;
+    down.innerHTML=' x='+x+',y='+y;
+   }
+
+   var scroll=document.getElementsByClassName('scroll')[0];
+   scroll.onmousewheel=function(event){
+       event=event||window.event;
+    if(event.wheelDelta>0)
+    {
+        scroll.style.height=scroll.clientHeight-20+'px'
+    }
+   else 
+   scroll.style.height=scroll.clientHeight+20+'px';
+   event.preventDefault();
+
+   }
+    var input=document.getElementsByTagName('input')[0];
+   input.onkeydown=function(event){
+       if(event.keyCode==90&&event.shiftKey)
+       console.log('you press alt and '+ event.keyCode);
+       else
+       console.log('only'+event.keyCode)
+       if(event.keyCode>47&&event.keyCode<58)
+       return false
+  
+   }
+
+var box=document.getElementById('box')
+var speed=10;
+var dire=0;
+
+setInterval(() => {
+  switch (dire){
+ case 38:
+     box.style.top=box.offsetTop-speed+'px';
+     break;
+ case 40:
+    box.style.top=box.offsetTop+speed+'px';
+    break;
+case 37:
+    box.style.left=box.offsetLeft-speed+'px';
+    break;
+case 39:
+    box.style.left=box.offsetLeft+speed+'px';
+    break;
+default:break;
+}  
+}, 30);
+
+document.onkeydown=function(event){
+    dire=event.keyCode;
+    if(event.altKey)speed=30;
+    else speed=10;
+    if(event.shiftKey)speed=5;
+    else speed=10;
+}
+document.onkeyup=function(){
+    dire=0;}
+
+   </script>
+</body>
+</html>

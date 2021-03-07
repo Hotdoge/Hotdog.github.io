@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../资料/jquery.min.js"></script>
+    <style>
+        .outer{width: 50%;
+        margin: 90px auto;}
+        table{
+             width:100%;
+             margin: 40px auto;
+             border-collapse:collapse;
+             text-align: center;
+        }
+        table td{
+            border:1.5px solid black;
+            height: 40px;
+            }
+        form{
+            width:100%;
+            margin: 10px auto;
+            text-align: center;
+            border:1px solid black;
+        }
+        thead{font-weight:bold;}
+        input{margin:10px 0;}
+        a{
+            color:blue;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+<div class="outer">
+    <table>
+        <tr><td>Name</td><td>Email</td><td>Salary</td><td>Operate</td></tr>
+        <tr><td>aaa</td><td>asd</td><td>1s23</td><td><a href="./123./123">Delete</a></td></tr>
+        <tr><td>bbb</td><td>qwe</td><td>321</td><td><a href="./123./123">Delete</a></td></tr>
+        <tr><td>ccc</td><td>zxc</td><td>4533</td><td><a href="./123./123">Delete</a></td></tr>
+    </table>
+
+        <div>
+            <form action="">
+            <b>添加新员工：</b> <br>
+            Name: <input type="text"><br>
+            Email: <input type="text"><br>
+            Salary: <input type="text" ><br>
+            <input type="submit" id='sub'>
+            </form>
+        </div>
+
+        <script>
+            $('input:submit').click(
+                ()=>{
+                    var na=$('input').eq(0).val()
+                    var em=$('input').eq(1).val()
+                    var sa=$('input').eq(2).val()
+                    $('table').append('<tr><td>'+na+'</td><td>'+em+'</td><td>'+sa+'</td><td><a href="./123./123">Delete</a></td></tr>')
+                    $('input').val('');
+                    $('tr:last a').click(dele)
+                    return false
+                }
+            )
+
+            $('a').click(dele)
+            function dele() {
+                    var tr=this.parentNode.parentNode;
+                    if(confirm('真的要删除'+tr.firstChild.innerHTML)){
+                        tr.remove()
+                    }
+                    return false
+                }
+        </script>
+</div>
+</body>
+</html>

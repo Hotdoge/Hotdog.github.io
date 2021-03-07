@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jQ/jquery.js"></script>
+    <style>
+        body{height: 2000px;}
+        div{width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #bfa;
+        padding: 10px;
+        font-size: 15px;
+        position:sticky;
+        left: 85%;
+        top: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div id='back'>缓慢回顶</div>
+    <script>
+        $('#back').click(
+            function () {
+                var bar=$('html,body')
+                var id=setInterval(() => {
+                   a=bar.scrollTop()
+                   a-=20
+                   bar.scrollTop(a)
+                   if(bar.scrollTop()<=0)
+                   {bar.scrollTop(0)
+                   clearInterval(id)}
+               }, 30);
+            }
+        )
+    </script>
+</body>
+</html>

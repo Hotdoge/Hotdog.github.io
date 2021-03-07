@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    div{
+        width: 300px;
+        margin:10px auto;
+        text-align: center;
+        background-color: antiquewhite;
+        font:bold 22px '微软雅黑';
+        position: relative;
+        border-top-left-radius: 20%;
+       }
+    img{
+        width: 100%;
+    }
+    but{
+        display: inline-block;
+        background-color: rgba(128, 128, 128, 0.336);
+        width: 35px;
+        height: 50px;
+        line-height: 50px;
+        position:absolute;
+        top:50%;
+        border:.5px solid white;
+        color: white;
+    }
+    but:active{
+        background-color: rgba(104, 101, 101, 0.925);
+    }
+    #a{
+        left: 0;
+    }
+    #b{
+        right: 0;
+    }
+</style>
+
+<script>
+onload=function(){
+var i=0;
+var outer=document.getElementById('outer');
+var bts=document.getElementsByTagName('but');
+var p=document.getElementsByTagName('p')[0];
+var a=['ziliao/1.jpeg','ziliao/2.jpeg','ziliao/3.jpeg',
+'ziliao/4.jpeg','ziliao/5.jpeg','ziliao/6.jpeg'];
+p.innerHTML=(i+1)+'/'+a.length;
+
+
+bts[0].onclick=function (){
+    i--;if(i==-1)i=5;
+    outer.setAttribute('src',a[i]);
+    p.innerHTML=(i+1)+'/'+a.length;
+};
+bts[1].onclick=function(){
+    i++;if(i>a.length-1)i=0;
+    outer.setAttribute('src',a[i]);
+    p.innerHTML=(i+1)+'/'+a.length;
+}
+setInterval(() => {
+    bts[1].onclick()
+}, 2000);
+
+ }
+</script>
+</head>
+
+<body>
+    <div>
+        <p></p>
+<img  id="outer" src="ziliao/1.jpeg" alt="">
+        <but id="a">←</but>
+        <but id="b">→</but>
+    </div>
+
+</body>
+</html>

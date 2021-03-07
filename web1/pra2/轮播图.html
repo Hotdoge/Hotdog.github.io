@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../资料/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../资料/css/all.min.css">
+    <style>
+        .outer{
+            width:300px;
+            height: 500px;
+            margin:20px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black ;
+        }
+        .list{
+            display: flex;
+            position: relative;
+        }
+        img{
+            width: 100%;
+            height: 500px;
+        }
+        ul{
+            list-style: none;
+        display: flex;
+        position: relative;
+        top: -50px;
+        padding: 0px;
+        margin:0 20%;
+        }
+        li{
+            width: 8px;
+            height: 8px;
+            background-color: rgba(245, 222, 179, 0.719);
+            border:2px rgba(155, 154, 154, 0.432) solid;
+            margin: 10px;
+            border-radius:50%;
+
+        }
+        .flo{
+            width: 100%;
+            z-index: 7;
+            color: black;
+            font-size: 50px;
+            position: relative;
+            top:-65%;
+            padding:10px;
+            box-sizing: border-box;
+        }
+        .flo .ri,.flo .le{float:right;
+        width: 30px;
+        padding-left:5px;
+        background-color: rgba(129, 129, 129, 0.541);}
+        .flo .le{float:left;}
+    </style>
+</head>
+<body>
+<div class="outer">
+<div class="list">
+    <img src="../../资料/1.jpeg" alt="">
+    <img src="../../资料/2.jpg" alt="">
+    <img src="../../资料/3.jpg" alt="">
+    <img src="../../资料/4.jpeg" alt="">
+    <img src="../../资料/5.jpeg" alt="">
+    <img src="../../资料/6.jpeg" alt="">
+</div>
+<ul class="fade">
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+</ul>
+<div class="flo fade">
+<i class="fas fa-angle-right ri"></i>
+<i class="fas fa-angle-left le"></i>
+</div>
+
+</div>
+
+<script>
+var li=0;
+var id;
+$list=$('.list')
+$li=$('li')
+$li.eq(li).css('background','rgba(155, 154, 154, 0.632)')
+$('.le').click(()=>{
+    clearInterval(id)
+ if(li==0){
+     $list.css('left','-1500px');
+     $li.eq(li).css('background','rgba(245, 222, 179, 0.719)')
+     li=5;
+     $li.eq(li).css('background','rgba(155, 154, 154, 0.632)')
+    }
+ else{
+         id=setInterval(() => {
+         now=parseInt($list.css('left'))+20
+         $list.css('left',now+'px');
+         if(now>=-(li-1)*300)
+         {clearInterval(id);li--}
+     }, 30);
+     $li.eq(li).css('background','rgba(245, 222, 179, 0.719)')
+     $li.eq(li-1).css('background','rgba(155, 154, 154, 0.632)')
+    
+ }})
+ $('.ri').click(()=>{
+    clearInterval(id)
+if(li==5){
+    $list.css('left','0px');
+    $li.eq(li).css('background','rgba(245, 222, 179, 0.719)')
+    li=0;
+    $li.eq(li).css('background','rgba(155, 154, 154, 0.632)')
+}
+else{
+    id=setInterval(() => {
+         now=parseInt($list.css('left'))-20
+         $list.css('left',now+'px')
+         if(now<=-(li+1)*300)
+         {clearInterval(id);li++}
+     }, 30)
+    $li.eq(li).css('background','rgba(245, 222, 179, 0.719)')
+    $li.eq(li+1).css('background','rgba(155, 154, 154, 0.632)')
+}})
+$li.click(function(){
+    $li.eq(li).css('background','rgba(245, 222, 179, 0.719)')
+    li=$(this).index()
+    $li.eq(li).css('background','rgba(155, 154, 154, 0.632)')
+    $list.css('left','-'+(li*300)+'px')
+});
+$('.outer').mouseenter(()=>{
+    $('.fade').fadeIn('slow')}
+)
+$('.outer').mouseleave(()=>{
+    $('.fade').fadeOut('slow')}
+)
+</script>
+</body>
+</html>
